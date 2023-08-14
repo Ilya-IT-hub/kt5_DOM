@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page {
+      display: none;
+      text-align: center;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    .page h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .page p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #666;
+    }
+    .page img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .btn:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="page1" class="page">
+      <h1>Добро пожаловать в мир сказок!</h1>
+      <p>Путешествие в магический мир начинается здесь...</p>
+      <img src="https://www.mirf.ru/wp-content/uploads/2015/11/start11.jpg" alt="Magic World">
+      <button class="btn" onclick="goToPage(2)">Далее</button>
+    </div>
+
+    <div id="page2" class="page">
+      <h1>Золотой ключик</h1>
+      <p>Держите в руках золотой ключик и вам откроются все двери!</p>
+      <img src="https://chakiris.club/uploads/posts/2022-02/1644274999_2-chakiris-club-p-magicheskii-klyuchik-fentezi-oboi-2.jpg" alt="Golden Key">
+      <button class="btn" onclick="goToPage(1)">Назад</button>
+      <button class="btn" onclick="goToPage(3)">Далее</button>
+    </div>
+
+    <div id="page3" class="page">
+      <h1>Лесные эльфы</h1>
+      <p>Встречайте дружелюбных лесных эльфов, они помогут вам в путешествии!</p>
+      <img src="https://beedle.club/uploads/posts/2023-03/1679095956_beedle-club-p-bashmachnik-i-elfi-fentezi-instagram-16.jpg" alt="Forest Elves">
+      <button class="btn" onclick="goToPage(2)">Назад</button>
+      <button class="btn" onclick="goToPage(4)">Далее</button>
+    </div>
+
+    <div id="page4" class="page">
+      <h1>Замок в облаках</h1>
+      <p>На вершине облаков расположен великолепный замок, где сбываются мечты!</p>
+      <img src="https://chakiris.club/uploads/posts/2022-02/1644443710_1-chakiris-club-p-skazochnii-zamok-v-oblakakh-fentezi-oboi-1.jpg" alt="Castle in the Clouds">
+      <button class="btn" onclick="goToPage(3)">Назад</button>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 1;
+    const pages = document.querySelectorAll('.page');
+
+    function goToPage(pageNumber) {
+      pages[currentPage - 1].style.display = 'none';
+      pages[pageNumber - 1].style.display = 'block';
+      currentPage = pageNumber;
+    }
+
+    // Анимация при наведении мыши
+    pages.forEach(page => {
+      page.addEventListener('mouseenter', function () {
+        this.style.transform = 'scale(1.02)';
+      });
+
+      page.addEventListener('mouseleave', function () {
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Показываем первую страницу при загрузке
+    pages[0].style.display = 'block';
+  </script>
+</body>
+</html>
