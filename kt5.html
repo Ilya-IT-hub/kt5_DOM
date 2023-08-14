@@ -106,7 +106,6 @@
       currentPage = pageNumber;
     }
 
-    // Анимация при наведении мыши
     pages.forEach(page => {
       page.addEventListener('mouseenter', function () {
         this.style.transform = 'scale(1.02)';
@@ -117,7 +116,6 @@
       });
     });
 
-    // Показываем первую страницу при загрузке
     pages[0].style.display = 'block';
   </script>
 </body>
